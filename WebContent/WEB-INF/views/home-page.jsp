@@ -26,18 +26,18 @@
 				</tr>
 			</thead>
 			<tbody>
-<%-- 			<c:forEach var="tempStudent" items="${students}">
+ 			<c:forEach var="tempStudent" items="${students}">
 			<tr>
 				<td>${tempStudent.studentId}</td>
 				<td>${tempStudent.firstName}</td>
 				<td>${tempStudent.email}</td>
 			</tr>
-			</c:forEach> --%>
- 				<tr>
+			</c:forEach>
+<!--  				<tr>
 					<td>1</td>
 					<td>Mark</td>
 					<td>Computer Science</td>
-				</tr>
+				</tr> -->
 			</tbody>
 		</table>
 	</div>
