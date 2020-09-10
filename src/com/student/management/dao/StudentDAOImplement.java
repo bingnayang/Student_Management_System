@@ -17,7 +17,6 @@ public class StudentDAOImplement implements StudentDAO {
 	private SessionFactory sessionFactory;
 	
 	@Override
-	@Transactional
 	public List<Student> getStudents() {
 		
 		//Get the current hibernate session
