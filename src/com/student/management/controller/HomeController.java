@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.student.management.dao.StudentDAO;
 import com.student.management.entity.Student;
 import com.student.management.service.StudentService;
 
@@ -26,4 +25,10 @@ public class HomeController {
 		
 		return "home-page";
 	}
+	
+	@GetMapping("/formAddNewStudent")
+	public String formAddNewStudent(Model theModel) {
+		return "newStudent-form";
+	}
+	
 }
