@@ -18,7 +18,6 @@ public class StudentDAOImplement implements StudentDAO {
 	
 	@Override
 	public List<Student> getStudents() {
-		
 		//Get the current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 		// Create a query
@@ -28,6 +27,14 @@ public class StudentDAOImplement implements StudentDAO {
 		// Return the results
 		
 		return students;
+	}
+
+	@Override
+	public void saveStudent(Student theStudent) {
+		// Get current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();		
+		// Save the student to database
+		currentSession.save(theStudent);
 	}
 
 }

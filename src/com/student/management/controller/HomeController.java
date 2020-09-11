@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.student.management.entity.Student;
 import com.student.management.service.StudentService;
@@ -28,10 +30,17 @@ public class HomeController {
 	
 	@GetMapping("/formAddNewStudent")
 	public String formAddNewStudent(Model theModel) {
-		// Create model attribute to bin form data
+		// Create model attribute to bind form data
 		Student theStudent = new Student();
 		theModel.addAttribute("student",theStudent);
 		return "newStudent-form";
 	}
 	
+	@PostMapping("/saveStudent")
+	public String saveStudent(@ModelAttribute("student") Student theStudent) {
+		// Save the student using service
+		studentService.saveStudent(theStudent);
+		
+		return "redirect:/home-page";
+	}
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,14 @@ public class StudentServiceImplement implements StudentService {
 	public List<Student> getStudents() {
 		// Delegate calls to DAO
 		return studentDAO.getStudents();
+	}
+
+	@Override
+	@Transactional
+	public void saveStudent(Student theStudent) {
+		
+		studentDAO.saveStudent(theStudent);
+		
 	}
 
 }
