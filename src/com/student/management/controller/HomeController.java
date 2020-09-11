@@ -28,6 +28,9 @@ public class HomeController {
 	
 	@GetMapping("/formAddNewStudent")
 	public String formAddNewStudent(Model theModel) {
+		// Create model attribute to bin form data
+		Student theStudent = new Student();
+		theModel.addAttribute("student",theStudent);
 		return "newStudent-form";
 	}
 	
