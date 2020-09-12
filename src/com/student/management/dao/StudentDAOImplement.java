@@ -20,8 +20,8 @@ public class StudentDAOImplement implements StudentDAO {
 	public List<Student> getStudents() {
 		//Get the current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
-		// Create a query
-		Query<Student> theQuery = currentSession.createQuery("from Student",Student.class);
+		// Create a query and sort by last name
+		Query<Student> theQuery = currentSession.createQuery("from Student order by lastName",Student.class);
 		// Execute query and get result list
 		List<Student> students = theQuery.getResultList();
 		// Return the results
@@ -33,8 +33,17 @@ public class StudentDAOImplement implements StudentDAO {
 	public void saveStudent(Student theStudent) {
 		// Get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();		
-		// Save the student to database
-		currentSession.save(theStudent);
+		// Save or update the student to database
+		currentSession.saveOrUpdate(theStudent);
+	}
+
+	@Override
+	public Student getStudents(int theId) {
+		// Get current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();	
+		// Read from database using the id
+		Student theStudent = currentSession.get(Student.class,theId);	
+		return theStudent;
 	}
 
 }

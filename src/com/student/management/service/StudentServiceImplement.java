@@ -20,16 +20,21 @@ public class StudentServiceImplement implements StudentService {
 	@Override
 	@Transactional
 	public List<Student> getStudents() {
-		// Delegate calls to DAO
 		return studentDAO.getStudents();
 	}
 
 	@Override
 	@Transactional
-	public void saveStudent(Student theStudent) {
-		
+	public void saveStudent(Student theStudent) {	
 		studentDAO.saveStudent(theStudent);
 		
+	}
+
+	@Override
+	@Transactional
+	public Student getStudent(int theId) {
+		// TODO Auto-generated method stub
+		return studentDAO.getStudents(theId);
 	}
 
 }

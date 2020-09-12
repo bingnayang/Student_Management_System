@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.student.management.entity.Student;
 import com.student.management.service.StudentService;
@@ -43,4 +44,16 @@ public class HomeController {
 		
 		return "redirect:/home-page";
 	}
+	
+	@GetMapping("/showFormForUpdate")
+	public String showFormForUpdate(@RequestParam("studentId") int theId, Model theModel) {
+		// Get the student from the service
+		Student theStudent = studentService.getStudent(theId);
+		// Set student as a model attribute to pre-populate the form
+		theModel.addAttribute("student",theStudent);
+		// Send to form
+		return "updateStudent-form";
+		
+	}
+	
 }

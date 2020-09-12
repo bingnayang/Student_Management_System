@@ -26,21 +26,29 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th scope="col">Student #</th>
+<!-- 					<th scope="col">Student #</th> -->
 					<th scope="col">Fist Name</th>
 					<th scope="col">Last Name</th>
 					<th scope="col">Email</th>
 					<th scope="col">Major</th>
+					<th scope="col">Action</th>
 				</tr>
 			</thead>
 			<tbody>
  			<c:forEach var="tempStudent" items="${students}">
+ 				<!-- Construct an "update" link with student Id -->
+ 				<c:url var="updateLink" value="/showFormForUpdate">
+ 					<c:param name="studentId" value="${tempStudent.studentId}"/>
+ 				</c:url>
 				<tr>
-					<td>${tempStudent.studentId}</td>
+<%-- 					<td>${tempStudent.studentId}</td> --%>
 					<td>${tempStudent.firstName}</td>
 					<td>${tempStudent.lastName}</td>
 					<td>${tempStudent.email}</td>
 					<td>${tempStudent.major}</td>
+					<td>
+						<a href="${updateLink}">Update</a>
+					</td>
 				</tr>
 			</c:forEach>
 			</tbody>
