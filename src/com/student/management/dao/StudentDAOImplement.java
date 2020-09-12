@@ -46,4 +46,14 @@ public class StudentDAOImplement implements StudentDAO {
 		return theStudent;
 	}
 
+	@Override
+	public void deleteStudent(int theId) {
+		// Get current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+		// Delete the student from database with id key
+		Query theQuery = currentSession.createQuery("delete from Student where id=:studentId");
+		theQuery.setParameter("studentId",theId);
+		theQuery.executeUpdate();
+	}
+
 }

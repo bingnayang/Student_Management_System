@@ -10,4 +10,6 @@ public interface StudentDAO {
 	public void saveStudent(Student theStudent);
 
 	public Student getStudents(int theId);
+
+	public void deleteStudent(int theId);
 }

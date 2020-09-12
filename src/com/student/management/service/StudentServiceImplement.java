@@ -37,4 +37,11 @@ public class StudentServiceImplement implements StudentService {
 		return studentDAO.getStudents(theId);
 	}
 
+	@Override
+	@Transactional
+	public void deleteStudent(int theId) {
+		studentDAO.deleteStudent(theId);
+		
+	}
+
 }

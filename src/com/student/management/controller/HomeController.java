@@ -56,4 +56,12 @@ public class HomeController {
 		
 	}
 	
+	@GetMapping("/forDelete")
+	public String forDelete(@RequestParam("studentId") int theId, Model theModel) {
+		// Delete the student
+		studentService.deleteStudent(theId);
+		
+		return "redirect:/home-page";
+		
+	}
 }
