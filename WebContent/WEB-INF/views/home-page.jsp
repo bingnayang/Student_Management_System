@@ -19,16 +19,16 @@
 	<nav class="navbar navbar-light bg-light mb-2">
 		<span class="navbar-brand mb-0 h1">Student Management System</span>
 	</nav>
-	<div class="container">
-		<input type="button" value="Add New Student" onclick="window.location.href='formAddNewStudent';return false;"/>
+	<div class="container mb-2">
+		<input type="button" class="btn btn-primary" value="Add New Student" onclick="window.location.href='formAddNewStudent';return false;"/>
 	</div>
- 	<div class="container">
+ 	<div class="container mb-2">
 		<table class="table">
 			<thead>
 				<tr>
 <!-- 					<th scope="col">Student #</th> -->
-					<th scope="col">Fist Name</th>
 					<th scope="col">Last Name</th>
+					<th scope="col">Fist Name</th>
 					<th scope="col">Email</th>
 					<th scope="col">Major</th>
 					<th scope="col">Action</th>
@@ -47,8 +47,8 @@
  				
 				<tr>
 <%-- 					<td>${tempStudent.studentId}</td> --%>
-					<td>${tempStudent.firstName}</td>
 					<td>${tempStudent.lastName}</td>
+					<td>${tempStudent.firstName}</td>
 					<td>${tempStudent.email}</td>
 					<td>${tempStudent.major}</td>
 					<td>

@@ -13,22 +13,34 @@
 <title>Add New Student</title>
 </head>
 <body>
-	<h2>Add New Student</h2>
+	<nav class="navbar navbar-light bg-light mb-2">
+		<span class="navbar-brand mb-0 h1">Student Management System</span>
+		<form class="form-inline">
+			<a href="${pageContext.request.contextPath}/home-page">Go Back To Home Page</a>
+  		</form>
+	</nav>
+	
 	<div class="container">
+		<h5 class="text-center">Add New Student</h5>
 		<form:form action="saveStudent" modelAttribute="student" method="POST">
-			<label>First Name: </label>
-			<form:input path="firstName"/>
-			<label>Last Name: </label>
-			<form:input path="lastName"/>
-			<label>Email: </label>
-			<form:input path="email"/>
-			<label>Major: </label>
-			<form:input path="major"/>
-			<input type="submit" value="Save"/>
+			<div class="form-group">
+				<label>First Name: </label>
+				<form:input path="firstName" class="form-control"/>
+			</div>
+			<div class="form-group">
+				<label>Last Name: </label>
+				<form:input path="lastName" class="form-control"/>
+			</div>
+			<div class="form-group">
+				<label>Email: </label>
+				<form:input path="email" class="form-control"/>
+			</div>
+			<div class="form-group">
+				<label>Major: </label>
+				<form:input path="major" class="form-control"/>
+			</div>
+			<input type="submit" value="Save" class="btn btn-primary btn-block"/>
 		</form:form>
-	</div>
-	<div class="container">
-		<a href="${pageContext.request.contextPath}/home-page">Go Back To Home Page</a>
 	</div>
 </body>
 </html>
