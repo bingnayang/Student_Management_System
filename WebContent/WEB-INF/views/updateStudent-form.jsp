@@ -13,25 +13,37 @@
 <title>Update/Edit Student</title>
 </head>
 <body>
-	<h2>Update/Edit Student</h2>
-	<div class="container">
+	<nav class="navbar navbar-light bg-primary mb-2">
+		<span class="navbar-brand mb-0 h1 text-light">Student Management System</span>
+		<form class="form-inline">
+			<a href="${pageContext.request.contextPath}/home-page" class="btn btn-outline-light">Go Back To Home Page</a>
+  		</form>
+	</nav>
+	
+	<div class="container bg-light" style="padding: 15px;">
 		<form:form action="saveStudent" modelAttribute="student" method="POST">
+		<h5 class="text-center">Update Student</h5>
 			<!-- Need to associate this form with student id -->
 			<form:hidden path="studentId"/>
-			
-			<label>First Name: </label>
-			<form:input path="firstName"/>
-			<label>Last Name: </label>
-			<form:input path="lastName"/>
-			<label>Email: </label>
-			<form:input path="email"/>
-			<label>Major: </label>
-			<form:input path="major"/>
-			<input type="submit" value="Save"/>
+			<div class="form-group">
+				<label>First Name: </label>
+				<form:input path="firstName" class="form-control"/>
+			</div>
+			<div class="form-group">
+				<label>Last Name: </label>
+				<form:input path="lastName" class="form-control"/>
+			</div>
+			<div class="form-group">
+				<label>Email: </label>
+				<form:input path="email" class="form-control"/>
+			</div>
+			<div class="form-group">
+				<label>Major: </label>
+				<form:input path="major" class="form-control"/>
+			</div>
+			<input type="submit" value="Save Update" class="btn btn-primary btn-block"/>
 		</form:form>
 	</div>
-	<div class="container">
-		<a href="${pageContext.request.contextPath}/home-page">Go Back To Home Page</a>
-	</div>
+
 </body>
 </html>

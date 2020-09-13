@@ -13,14 +13,14 @@
 <title>Add New Student</title>
 </head>
 <body>
-	<nav class="navbar navbar-light bg-light mb-2">
-		<span class="navbar-brand mb-0 h1">Student Management System</span>
+	<nav class="navbar navbar-light bg-primary mb-2">
+		<span class="navbar-brand mb-0 h1 text-light">Student Management System</span>
 		<form class="form-inline">
-			<a href="${pageContext.request.contextPath}/home-page">Go Back To Home Page</a>
+			<a href="${pageContext.request.contextPath}/home-page" class="btn btn-outline-light">Go Back To Home Page</a>
   		</form>
 	</nav>
 	
-	<div class="container">
+	<div class="container bg-light" style="padding: 15px;">
 		<h5 class="text-center">Add New Student</h5>
 		<form:form action="saveStudent" modelAttribute="student" method="POST">
 			<div class="form-group">
