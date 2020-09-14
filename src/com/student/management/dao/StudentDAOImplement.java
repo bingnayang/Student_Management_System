@@ -8,6 +8,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.student.management.entity.Course;
 import com.student.management.entity.Student;
 
 @Repository
@@ -54,6 +56,20 @@ public class StudentDAOImplement implements StudentDAO {
 		Query theQuery = currentSession.createQuery("delete from Student where id=:studentId");
 		theQuery.setParameter("studentId",theId);
 		theQuery.executeUpdate();
+	}
+
+	@Override
+	public List<Course> getStudentCourses(int theId) {
+		//Get the current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+		// Create a query
+		Query<Course> theQuery = currentSession.createQuery("from Course where studentId=:studentId",Course.class);
+		theQuery.setParameter("studentId",theId);
+		// Get result list
+		List<Course> students = theQuery.getResultList();
+		// Return the results	
+		return students;
+
 	}
 
 }

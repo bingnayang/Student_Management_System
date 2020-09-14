@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.student.management.dao.StudentDAO;
+import com.student.management.entity.Course;
 import com.student.management.entity.Student;
 
 @Service
@@ -42,6 +43,13 @@ public class StudentServiceImplement implements StudentService {
 	public void deleteStudent(int theId) {
 		studentDAO.deleteStudent(theId);
 		
+	}
+
+	@Override
+	@Transactional
+	public List<Course> getStudentCourses(int theId) {
+		// TODO Auto-generated method stub
+		return studentDAO.getStudentCourses(theId);
 	}
 
 }

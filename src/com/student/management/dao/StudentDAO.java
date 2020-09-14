@@ -2,6 +2,7 @@ package com.student.management.dao;
 
 import java.util.List;
 
+import com.student.management.entity.Course;
 import com.student.management.entity.Student;
 
 public interface StudentDAO {
@@ -12,4 +13,6 @@ public interface StudentDAO {
 	public Student getStudents(int theId);
 
 	public void deleteStudent(int theId);
+
+	public List<Course> getStudentCourses(int theId);
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.student.management.entity.Course;
 import com.student.management.entity.Student;
 import com.student.management.service.StudentService;
 
@@ -65,8 +66,16 @@ public class HomeController {
 	
 	@GetMapping("/showStudentInfo")
 	public String showStudentInfo(@RequestParam("studentId") int theId, Model theModel) {
-		// Get the student from the service
+		// Get student info from the service
 		Student theStudent = studentService.getStudent(theId);
+		// Get student courses list from the service
+		List<Course> theCourse = studentService.getStudentCourses(theId);
+		System.out.println("Course List");
+		for(Course it : theCourse) {
+		     System.out.print(it.getName());
+		}
+		
+		theModel.addAttribute("course",theCourse);
 		// Set student as a model attribute to pre-populate the form
 		theModel.addAttribute("student",theStudent);
 		// Send to page

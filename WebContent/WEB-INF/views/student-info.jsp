@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +30,31 @@
 			<h4>Student Id # ${student.studentId}</h4>
 			<h4>Major: ${student.major}</h4>
 		</div>
+	</div>
+
+	<div class="container">
+		<table class="table">
+			<thead class="thead-light">
+				<tr>
+					<th scope="col">Course Year</th>
+					<th scope="col">Course Semester</th>
+					<th scope="col">Course Name</th>
+					<th scope="col">Credit</th>
+					<th scope="col">Grade</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="tempCourse" items="${course}">
+					<tr>
+						<td>${tempCourse.year}</td>
+						<td>${tempCourse.semester}</td>
+						<td>${tempCourse.name}</td>
+						<td>${tempCourse.credit}</td>
+						<td>${tempCourse.grade}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
 	</div>
 </body>
 </html>

@@ -2,6 +2,7 @@ package com.student.management.service;
 
 import java.util.List;
 
+import com.student.management.entity.Course;
 import com.student.management.entity.Student;
 
 public interface StudentService {
@@ -9,4 +10,5 @@ public interface StudentService {
 	public void saveStudent(Student theStudent);
 	public Student getStudent(int theId);
 	public void deleteStudent(int theId);
+	public List<Course> getStudentCourses(int theId);
 }
