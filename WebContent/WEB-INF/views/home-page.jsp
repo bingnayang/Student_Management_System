@@ -26,7 +26,7 @@
 		<table class="table">
 			<thead>
 				<tr>
-<!-- 					<th scope="col">Student #</th> -->
+ 					<th scope="col">Student Info</th>
 					<th scope="col">Last Name</th>
 					<th scope="col">Fist Name</th>
 					<th scope="col">Email</th>
@@ -44,9 +44,13 @@
  				<c:url var="deleteLink" value="/forDelete">
  					<c:param name="studentId" value="${tempStudent.studentId}"/>
  				</c:url>
+ 				<!-- Construct an "detail" link with student Id -->
+ 				<c:url var="detailLink" value="/showStudentInfo">
+ 					<c:param name="studentId" value="${tempStudent.studentId}"/>
+ 				</c:url>
  				
 				<tr>
-<%-- 					<td>${tempStudent.studentId}</td> --%>
+ 					<td><a href="${detailLink}" class="btn btn-sm btn-outline-info">View</a></td>
 					<td>${tempStudent.lastName}</td>
 					<td>${tempStudent.firstName}</td>
 					<td>${tempStudent.email}</td>
@@ -54,8 +58,9 @@
 					<td>
 						<a href="${updateLink}">Update</a> | 
 						<a href="${deleteLink}"
-							onclick="if(!(confirm('Are your sure you want to delete this student?'))) return false"
-						>Delete</a>
+							onclick="if(!(confirm('Are your sure you want to delete this student?'))) return false">
+							Delete
+						</a>
 					</td>
 				</tr>
 			</c:forEach>

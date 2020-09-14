@@ -53,7 +53,6 @@ public class HomeController {
 		theModel.addAttribute("student",theStudent);
 		// Send to form
 		return "updateStudent-form";
-		
 	}
 	
 	@GetMapping("/forDelete")
@@ -62,6 +61,15 @@ public class HomeController {
 		studentService.deleteStudent(theId);
 		
 		return "redirect:/home-page";
-		
+	}
+	
+	@GetMapping("/showStudentInfo")
+	public String showStudentInfo(@RequestParam("studentId") int theId, Model theModel) {
+		// Get the student from the service
+		Student theStudent = studentService.getStudent(theId);
+		// Set student as a model attribute to pre-populate the form
+		theModel.addAttribute("student",theStudent);
+		// Send to page
+		return "student-info";
 	}
 }
