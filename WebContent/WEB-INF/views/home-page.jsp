@@ -16,8 +16,8 @@
 <title>Home Page</title>
 </head>
 <body>
-	<nav class="navbar navbar-light bg-light mb-2">
-		<span class="navbar-brand mb-0 h1">Student Management System</span>
+	<nav class="navbar navbar-light bg-primary mb-2">
+		<span class="navbar-brand mb-0 h1  text-light">Student Management System</span>
 	</nav>
 	<div class="container mb-2">
 		<input type="button" class="btn btn-primary" value="Add New Student" onclick="window.location.href='formAddNewStudent';return false;"/>
